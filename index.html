@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+    <meta charset="UTF-8">
+    <title>ML Deployment using Heroku</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div class="prediction">
+        <h1>Decision Prediction</h1>
+        <form action="{{ url_for('predict')}}"method="post">
+		<label for="Credit_Card_Exceed_Months">Credit_Card_Exceed_Months</label>
+		<input type="text" id="Credit_Card_Exceed_Months" name="Credit_Card_Exceed_Months" required="required">
+		<br>
+    		<label for="Employment_Type">Employment_Type</label>
+    		<select id="Employment_Type" name="Employment_Type" required="required">
+				<option value="0">Fresh_Graduate</option>
+				<option value="1">Self_Employed</option>
+				<option value="2">employee</option>
+      			<option value="3">employer</option>
+      			<option value="4">government</option>
+    		</select>
+    		<br>
+		<label for="Loan_Amount">Loan_Amount </label>
+    		<input type="text" id="Loan_Amount" name="Loan_Amount" required="required">
+			<br>
+		<label for="Loan_Tenure_Year">Loan_Tenure_Year </label>
+    		<input type="text" id="Loan_Tenure_Year" name="Loan_Tenure_Year" required="required">
+		<br>
+    		<label for="More_Than_One_Products">More_Than_One_Products</label>
+    		<select id="More_Than_One_Products" name="More_Than_One_Products" required="required">
+      			<option value="1">yes</option>
+      			<option value="0">no</option>
+    		</select>
+    		<br>
+		<label for="Credit_Card_More_Than_Months">Credit_Card_More_Than_Months </label>
+    		<input type="text" id="Credit_Card_More_Than_Months" name="Credit_Card_More_Than_Months" required="required">
+			<br>
+		<label for="Number_of_Dependents">Number_of_Dependents </label>
+    		<input type="text" id="Number_of_Dependents" name="Number_of_Dependents" required="required">
+			<br>
+		<label for="Years_to_Financial_Freedom">Years_to_Financial_Freedom </label>
+    		<input type="text" id="Years_to_Financial_Freedom" name="Years_to_Financial_Freedom" required="required">
+			<br>
+		<label for="Number_of_Credit_Card_Facility">Number_of_Credit_Card_Facility </label>
+    		<input type="text" id="Number_of_Credit_Card_Facility" name="Number_of_Credit_Card_Facility" required="required">
+			<br>
+		<label for="Number_of_Properties">Number_of_Properties </label>
+    		<input type="text" id="Number_of_Properties" name="Number_of_Properties" required="required">
+			<br>
+		<label for="Number_of_Bank_Products">Number_of_Bank_Products </label>
+    		<input type="text" id="Number_of_Bank_Products" name="Number_of_Bank_Products" required="required">
+			<br>
+		<label for="Number_of_Loan_to_Approve">Number_of_Loan_to_Approve </label>
+    		<input type="text" id="Number_of_Loan_to_Approve" name="Number_of_Loan_to_Approve" required="required">
+			<br>
+		<label for="Property_Type">Property_Type</label>
+    		<select id="Property_Type" name="Property_Type" required="required">
+      			<option value="0">bungalow</option>
+				<option value="1">condominium</option>
+				<option value="2">flat</option>
+		      	<option value="3">terrace</option>
+    		</select>
+    		<br>
+		<label for="Years_for_Property_to_Completion">Years_for_Property_to_Completion </label>
+    		<input type="text" id="Years_for_Property_to_Completion" name="Years_for_Property_to_Completion" required="required">
+			<br>
+    	<label for="State">State</label>
+    		<select id="State" name="State" required="required">
+      			<option value="0">Johor</option>
+      			<option value="1">Kedah</option>
+      			<option value="2">Kuala Lumpur</option>
+				<option value="3">Negeri Sembilan</option>
+				<option value="4">Penang'</option>
+				<option value="5">Sabah</option>
+				<option value="6">Sarawak</option>
+				<option value="7">Selangor</option>
+				<option value="7">Terengganu</option>
+    		</select>
+    		<br>
+    	<label for="Number_of_Side_Income">Number_of_Side_Income </label>
+    		<input type="text" id="Number_of_Side_Income" name="Number_of_Side_Income" required="required">
+    		<br>
+    	<label for="Monthly_Salary">Monthly_Salary </label>
+    		<input type="text" id="Monthly_Salary" name="Monthly_Salary" required="required">
+    		<br>
+    	<label for="Total_Sum_of_Loan ">Total_Sum_of_Loan  </label>
+    		<input type="text" id="Total_Sum_of_Loan " name="Total_Sum_of_Loan " required="required">
+    		<br>
+		<label for="Total_Income_for_Join_Application ">Total_Income_for_Join_Application  </label>
+    		<input type="text" id="Total_Income_for_Join_Application " name="Total_Income_for_Join_Application " required="required">
+    		<br>
+		<label for="Score">Score </label>
+    		<input type="text" id="Score" name="Score" required="required">
+    		<br>
+        	<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+
+       <br>
+       <b>{{ prediction_text }}</b>
+    </div>
+</body>
+</html>
